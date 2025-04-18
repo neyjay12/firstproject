@@ -9,20 +9,37 @@ nr_letters = int(input("How many letters would you like to generate? "))
 nr_numbers = int(input("How many numbers would you like to generate? "))
 nr_symbols = int(input("How many symbols would you like to generate? "))
 
+#Easy choice
+password = ""
 
-password = []
-
-for char in range(1, nr_letters + 1):
+for char in range(0, nr_letters):
     password += random.choice(letters)
 
-
-for num in range(1, nr_numbers + 1):
+for num in range(0, nr_numbers):
     password += random.choice(numbers)
 
-for sym in range(1, nr_symbols + 1):
+for sym in range(0, nr_symbols):
     password += random.choice(symbol)
 
-password_str = list(password)
-random.shuffle(password_str)
-shuffled_password = "".join(password_str)
-print(shuffled_password)
+print(password)
+
+
+#Hard level: Where the password is mixed randomly
+
+password_list = []
+
+for char in range(0, nr_letters):
+    password_list.append(random.choice(letters))
+
+for num in range(0, nr_numbers):
+    password_list.append(random.choice(numbers))
+
+for sym in range(0, nr_symbols):
+    password_list.append(random.choice(symbol))
+
+print(f'Your old password is : {password_list}')
+random.shuffle(password_list)
+print(f'Your shuffled password is {password_list}')
+
+password = "".join(password_list)
+print(f"Your new password is: {password}")
